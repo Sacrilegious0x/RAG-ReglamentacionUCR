@@ -1,0 +1,10 @@
+fastapi[standard]
+langchain
+langchain-community
+langchain-core
+langchain-cohere
+cohere
+faiss-cpu
+pypdf
+python-dotenv
+jinja2
