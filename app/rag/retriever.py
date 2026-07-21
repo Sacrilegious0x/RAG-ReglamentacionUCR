@@ -19,7 +19,7 @@ def get_retriever(k: int | None = None):
     k: cuántos chunks devolver por consulta (por defecto settings.retriever_k).
 
     Nota: search_type="similarity" es el default (más rápido). Si más
-    adelante notás resultados muy repetitivos entre sí, se puede cambiar a
+    adelante se obtienen resultados muy repetitivos entre sí, se puede cambiar a
     search_type="mmr" (Maximal Marginal Relevance) para diversificar,
     ej: vector_store.as_retriever(search_type="mmr", search_kwargs={"k": k, "fetch_k": 20}).
     """
@@ -27,16 +27,3 @@ def get_retriever(k: int | None = None):
     k = k or settings.retriever_k
     logger.info("Creando retriever con k=%d", k)
     return vector_store.as_retriever(search_kwargs={"k": k})
-
-
-if __name__ == "__main__":
-    import logging as _logging
-
-    _logging.basicConfig(level=_logging.INFO)
-    retriever = get_retriever()
-    pregunta = "¿Cuántos créditos se necesitan para mantener la beca?"
-    resultados = retriever.invoke(pregunta)
-    print(f"\nPregunta: {pregunta}\n")
-    for i, doc in enumerate(resultados, start=1):
-        print(f"--- Resultado {i} | {doc.metadata.get('articulo')} | {doc.metadata.get('documento')} ---")
-        print(doc.page_content[:200].replace("\n", " "), "...\n")

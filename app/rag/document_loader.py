@@ -60,11 +60,3 @@ def load_documents(raw_dir: Path | None = None) -> list[Document]:
 
     logger.info("Total de páginas cargadas: %d (de %d archivos)", len(all_docs), len(pdf_files))
     return all_docs
-
-
-if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
-    documentos = load_documents()
-    print(f"Se cargaron {len(documentos)} páginas.")
-    if documentos:
-        print("Ejemplo de metadata:", documentos[0].metadata)

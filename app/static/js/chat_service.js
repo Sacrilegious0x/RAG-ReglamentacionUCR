@@ -1,21 +1,6 @@
-/* ======================================================================
-   CONFIGURACIÓN
-   ====================================================================== */
-// Ruta relativa: como este archivo lo sirve el mismo FastAPI que expone
-// /chat, no hace falta hardcodear host:puerto. Si en algún momento el
-// frontend se sirve desde otro origen, volvé a poner la URL completa
-// (ej: "http://localhost:8000/chat") y asegurate de que CORS lo permita.
+
 const API_URL = "/chat";
-// Se espera un POST con body: { "query": "...", "history": [...] }
-// y una respuesta JSON con la forma:
-// {
-//   "answer": "texto de la respuesta",
-//   "sources": [
-//     { "articulo": "Art. 15", "documento": "Reglamento de Régimen Académico Estudiantil" },
-//     ...
-//   ]
-// }
-/* ====================================================================== */
+
 
 const messagesEl = document.getElementById('messages');
 const inputEl = document.getElementById('userInput');

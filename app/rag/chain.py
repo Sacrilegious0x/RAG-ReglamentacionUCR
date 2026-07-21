@@ -119,12 +119,3 @@ def answer_question(query: str, history: list[dict] | None = None) -> dict:
         "answer": respuesta,
         "sources": [] if _respuesta_indica_sin_info(respuesta) else _extraer_fuentes(docs),
     }
-
-
-if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
-    pregunta = "¿Cuántos créditos se necesitan para mantener la beca?"
-    resultado = answer_question(pregunta)
-    print(f"\nPregunta: {pregunta}")
-    print(f"\nRespuesta: {resultado['answer']}")
-    print(f"\nFuentes: {resultado['sources']}")

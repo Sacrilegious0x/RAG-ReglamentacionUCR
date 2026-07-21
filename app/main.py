@@ -12,16 +12,6 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(na
  
 app = FastAPI(title="Consulta de Reglamentos UCR")
  
-# CORS: en produccion conviene restringir allow_origins a tu dominio real
-# en vez de "*". Lo dejamos abierto para desarrollo local.
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
- 
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 templates = Jinja2Templates(directory="app/templates")
  

@@ -60,14 +60,3 @@ def split_documents(documents: list[Document]) -> list[Document]:
 
     logger.info("Se generaron %d chunks a partir de %d documentos", len(chunks), len(documents))
     return chunks
-
-
-if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
-    from app.rag.document_loader import load_documents
-
-    docs = load_documents()
-    trozos = split_documents(docs)
-    print(f"Se generaron {len(trozos)} chunks.")
-    if trozos:
-        print("Ejemplo:", trozos[0].metadata, trozos[0].page_content[:120])
