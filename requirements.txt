@@ -2,9 +2,12 @@ fastapi[standard]
 langchain
 langchain-community
 langchain-core
+langchain-text-splitters
 langchain-cohere
 cohere
 faiss-cpu
 pypdf
+cryptography
 python-dotenv
+pydantic-settings
 jinja2
