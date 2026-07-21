@@ -1,7 +1,11 @@
 /* ======================================================================
-   CONFIGURACIÓN — ajustar según tu backend FastAPI
+   CONFIGURACIÓN
    ====================================================================== */
-const API_URL = "http://localhost:8000/chat";
+// Ruta relativa: como este archivo lo sirve el mismo FastAPI que expone
+// /chat, no hace falta hardcodear host:puerto. Si en algún momento el
+// frontend se sirve desde otro origen, volvé a poner la URL completa
+// (ej: "http://localhost:8000/chat") y asegurate de que CORS lo permita.
+const API_URL = "/chat";
 // Se espera un POST con body: { "query": "...", "history": [...] }
 // y una respuesta JSON con la forma:
 // {
@@ -11,7 +15,6 @@ const API_URL = "http://localhost:8000/chat";
 //     ...
 //   ]
 // }
-// Ajustá los nombres de campo abajo (dentro de sendMessage) si tu API difiere.
 /* ====================================================================== */
 
 const messagesEl = document.getElementById('messages');
@@ -34,6 +37,15 @@ inputEl.addEventListener('keydown', (e) => {
     sendMessage();
   }
 });
+
+// En móvil, cuando se abre/cierra el teclado virtual, el visualViewport
+// cambia de tamaño (a diferencia de window, que se mantiene fijo). Sin esto,
+// el último mensaje puede quedar tapado por el teclado en iOS/Android.
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', () => {
+    scrollToBottom();
+  });
+}
 
 function toggleExpediente(open) {
   const el = document.getElementById('expediente');
@@ -126,7 +138,7 @@ async function sendMessage() {
 
   } catch (err) {
     removeTyping();
-    const msg = addMessage('assistant', `No se pudo obtener respuesta del servidor.<br><small>${escapeHtml(err.message)}</small><br><small>Verificá que el backend esté corriendo en <code>${API_URL}</code> y que CORS esté habilitado.</small>`);
+    const msg = addMessage('assistant', `No se pudo obtener respuesta del servidor.<br><small>${escapeHtml(err.message)}</small><br><small>Verificá que el backend esté corriendo y que <code>${API_URL}</code> responda.</small>`);
     msg.querySelector('.bubble').classList.add('error-bubble');
   } finally {
     sendBtn.disabled = false;
@@ -136,7 +148,7 @@ async function sendMessage() {
 
 async function checkHealth() {
   try {
-    const base = new URL(API_URL).origin;
+    const base = new URL(API_URL, window.location.origin).origin;
     const res = await fetch(base + '/health', { method: 'GET' }).catch(() => null);
     if (res && res.ok) {
       statusLabel.textContent = 'backend conectado';

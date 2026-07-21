@@ -4,8 +4,6 @@ embeddings.py
 Devuelve el modelo de embeddings a usar, según settings.embeddings_provider.
 Soporta:
   - "cohere": requiere COHERE_API_KEY en .env (recomendado, buen soporte multilingue/espanol)
-  - "openai": requiere OPENAI_API_KEY en .env
-  - "huggingface": corre local, no requiere API key (mas lento, sin costo)
 """
 import logging
 
