@@ -182,4 +182,10 @@ El asistente responde de forma similar sobre cualquier otro reglamento que se ag
 - Con cuenta gratuita de Cohere, la velocidad de ingesta y de respuesta está limitada por los rate limits del plan trial (ver sección 4.3).
 
 > [!IMPORTANT]
-> Debido a que ocurrio un bloqueo en mi cuenta de Oracle Cloud relacionada con el metodo de pago me fue dificil hacer el despliegue respectivo en OCI, mas sin embargo el curso fue completado con exito, este problema surgio en los dias recientes a finalziar la entrega del reto, en caso de lograr tener antes resolucion por parte del equipo de soporte de OCI se actualizara el readme con el url para poder acceder al agente desde internet.
+> Puede acceder al despliegue en oracle cloud a traves de la IP Publica = 159.54.156.109.
+
+## 9. Evidencia del despliegue 
+<img width="1919" height="1017" alt="image" src="https://github.com/user-attachments/assets/050b8662-d0c4-4349-8f7d-8784a3dcf355" />
+
+<img width="1917" height="972" alt="image" src="https://github.com/user-attachments/assets/787808ef-352f-4b6d-be18-d6dc19d5c1d3" />
+
