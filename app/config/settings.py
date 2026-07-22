@@ -30,7 +30,7 @@ class Settings(BaseSettings):
     llm_temperature: float = 0.0
 
     # --- Retriever ---
-    retriever_k: int = 4
+    retriever_k: int = 3
 
 
 settings = Settings()
