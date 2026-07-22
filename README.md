@@ -145,7 +145,7 @@ Basado en el *Reglamento de Adjudicación de Becas a la Población Estudiantil*:
 - ¿Qué es la beca de excelencia académica y qué requisitos tiene?
 - ¿Cada cuánto tengo que actualizar mi información socioeconómica ante la OBAS?
 
-El asistente responde de forma similar sobre cualquier otro reglamento que se agregue a `data/raw/` (Régimen Académico Estudiantil, Disciplinario, etc.).
+El asistente responde de forma similar sobre cualquier otro reglamento que se agregue a `data/reglamentos/` (Régimen Académico Estudiantil, Disciplinario, etc.).
 
 ---
 
@@ -182,7 +182,7 @@ El asistente responde de forma similar sobre cualquier otro reglamento que se ag
 - Con cuenta gratuita de Cohere, la velocidad de ingesta y de respuesta está limitada por los rate limits del plan trial (ver sección 4.3).
 
 > [!IMPORTANT]
-> Puede acceder al despliegue en oracle cloud a traves de la IP Publica = 159.54.156.109.
+> Puede acceder al despliegue en oracle cloud a traves de la IP Publica = [159.54.156.109](http://159.54.156.109).
 
 ## 9. Evidencia del despliegue 
 <img width="1919" height="1017" alt="image" src="https://github.com/user-attachments/assets/050b8662-d0c4-4349-8f7d-8784a3dcf355" />
